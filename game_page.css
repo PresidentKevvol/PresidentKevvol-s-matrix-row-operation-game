@@ -1,0 +1,174 @@
+:root
+{
+    --MatrixElementSize: 1vh;
+    --MatrixBoxHeight: 36vh;
+    --SeperatorWidth: 0.5vh;
+    --MatrixElementFontSize: 1vh;
+    --WidgetTopPosition: 13vh;
+}
+
+body
+{
+    
+}
+
+.unselect
+{
+    user-select: none;
+}
+
+table
+{
+    border-collapse: collapse;
+}
+
+.ZeroMargin
+{
+    margin: 0;
+    padding: 0;
+}
+
+.MatrixRow
+{
+    height: var(--MatrixElementSize);
+    background-color: rgba(0, 255, 255, 0.0);
+    margin: 0;
+    padding: 0;
+}
+
+.MatrixEntry
+{
+    width: var(--MatrixElementSize);
+    font-size: var(--MatrixElementFontSize);
+    
+    font-family: sans-serif;
+    background-color: rgba(0, 255, 255, 0);
+    text-align: center;
+    vertical-align: middle;
+    
+    margin: 0;
+    padding: 0;
+}
+
+.MatrixEntrySmallFont
+{
+    font-size: var(--MatrixElementFontSizeSmall);
+}
+
+h1, h2
+{
+    font-family: sans-serif;
+    font-weight: 500;
+}
+
+h2
+{
+    font-size: 0.9rem;
+}
+
+#gameSpace
+{
+    position: relative;
+}
+
+#MatrixSpace
+{
+    position: absolute;
+    width: 70vw;
+}
+
+#MatrixKnobs
+{
+    float: left;
+}
+
+.knob
+{
+    height: var(--MatrixElementSize);
+}
+
+.MatrixBounds
+{
+    height: var(--MatrixBoxHeight);
+}
+
+#LeftBracket
+{
+    float: left;
+}
+
+#MatrixLeftDiv
+{
+    float: left;
+}
+
+#Separator
+{
+    float: left;
+    width: var(--SeperatorWidth);
+    object-fit: cover;
+}
+
+#MatrixRightDiv
+{
+    float: left;
+}
+
+#RightBracket
+{
+    float: left;
+}
+
+/* for a selected matrix row */
+.selectedRow
+{
+    /*
+    border-style: solid;
+    border-color: rgb(127, 255, 127);
+    border-width: 2px;
+    */
+    background-color: rgb(137, 255, 137);
+}
+
+#TransformSpace
+{
+    position: relative;
+    padding-left: 3vw;
+    top: 40vh;
+}
+
+.TransformPanelTops
+{
+    float: left;
+}
+
+#TransformPreview
+{
+    height: var(--MatrixElementSize);
+}
+
+.TransformBox
+{
+    width: 8vh;
+    height: 4vh;
+    font-size: 3vh;
+    text-align:center;
+}
+
+.selectedTransformSeperator
+{
+    height: var(--MatrixElementSize);
+    width: var(--SeperatorWidth);
+}
+
+#TransformWord
+{
+    clear: both;
+}
+
+div.tagg
+{
+    position: absolute;
+    right: 0;
+    bottom: 0;
+}

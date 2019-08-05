@@ -1,0 +1,111 @@
+<html>
+    <head>
+        <title>Matrix solving game</title>
+        <link rel="stylesheet" href="game_page.css">
+        <script src="game_page_classes.js"></script>
+        <script src="game_page_spec.js"></script>
+        <script src="game_page.js"></script>
+    </head>
+    <body> 
+        <link rel="import" href="game_page_render-templates.html">
+        
+        <!-- templates for the rows and entries -->
+        <template id="MatrixTemplateRow">
+            <tr class="MatrixRow unselect"></tr>
+        </template>
+        
+        <template id="MatrixTemplateEntry">
+            <td class="MatrixEntry"></td>
+        </template>
+        
+        <template id="MatrixTemplate">
+            <table class="Matrix"></table>
+        </template>
+        
+        <!-- template for the row switching knob -->
+        <template id="MatrixTemplateKnob">
+            <tr class="ZeroMargin">
+                <td class="ZeroMargin">
+                    <img src="knob_base.svg" class="knob" draggable="true">
+                </td>
+            </tr>
+        </template>
+        
+        <h1>Matrix solving game</h1>
+        <h2>
+            1. click on the rows to show the transformation panel<br>
+            2. multiply the selected row by any rational number by typing into the two text boxes<br>
+            3. drag the transformed row to any other row on the matrix to add them to that row or click 'Repaste' to replace the original row to the new form<br>
+            4. drag the yellow knobs on the left to each other to switch two rows<br>
+            5. Continue until the left matrix look like the identity matrix, then the right matrix will be the inverse of the original matrix
+        </h2>
+        
+        <div id="gameSpace">
+        <!-- the space containing the matrix -->
+        <div id="matrixSpace">
+            <div id="MatrixKnobs">
+                <table id="MatrixKnobTable"></table>
+            </div>
+            <img src="Square_brackets_left.svg" id="LeftBracket" class="MatrixBounds">
+            <div id="MatrixLeftDiv">
+            <table id="matrixLeft">
+                <tr class="MatrixRow unselect">
+                    <td class="MatrixEntry">6</td>
+                    <td class="MatrixEntry"><sup>-6</sup>&frasl;<sub>19</sub></td>
+                    <td class="MatrixEntry">-2</td>
+                </tr>
+                <tr class="MatrixRow unselect">
+                    <td class="MatrixEntry">-4</td>
+                    <td class="MatrixEntry">5</td>
+                    <td class="MatrixEntry">-9</td>
+                </tr>
+                <tr class="MatrixRow unselect">
+                    <td class="MatrixEntry">-3</td>
+                    <td class="MatrixEntry">1</td>
+                    <td class="MatrixEntry">4</td>
+                </tr>
+                </table>
+            </div>
+            <img src="separator.svg" id="Separator" class="MatrixBounds">
+            <div id="MatrixRightDiv">
+                <table id="MatrixRight">
+                <tr class="MatrixRow unselect">
+                    <td class="MatrixEntry">1</td>
+                    <td class="MatrixEntry">0</td>
+                    <td class="MatrixEntry">0</td>
+                </tr>
+                <tr class="MatrixRow unselect">
+                    <td class="MatrixEntry">0</td>
+                    <td class="MatrixEntry">1</td>
+                    <td class="MatrixEntry">0</td>
+                </tr>
+                <tr class="MatrixRow unselect">
+                    <td class="MatrixEntry">0</td>
+                    <td class="MatrixEntry">0</td>
+                    <td class="MatrixEntry">1</td>
+                </tr>
+                </table>
+            </div>
+            <img src="Square_brackets_right.svg" id="RightBracket" class="MatrixBounds">
+        </div>
+        
+        <!-- the space containing the transformation when a row is clicked -->
+        <div id="TransformSpace">
+            <div id="TransformSpaceInner">
+                <div id="TransformPreview" draggable="true" ondragstart="onTransformPanelDragBegin(event)">
+                    <table id="selectedTransformLeft" class="TransformPanelTops"></table>
+                    <img src="separator.svg" class="selectedTransformSeperator TransformPanelTops">
+                    <table id="selectedTransformRight"  class="TransformPanelTops"></table>
+                </div>
+                <div id="TransformWord">
+                    <input id="TransformNumerator" class="TransformBox" placeholder="1" oninput="onTransformPanelTextChange()"><br>
+                    <input id="TransformDenominator" class="TransformBox" placeholder="1" oninput="onTransformPanelTextChange()">
+                    <button onclick="onRepasteButtonClicked()">Repaste</button>
+                </div>
+            </div>
+        </div>
+        </div>
+        
+        <div class="tagg">made by PresidentKevvol 2018-2019</div>
+    </body>
+</html>
